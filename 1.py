@@ -7,9 +7,6 @@ import time
 import random
 import keyboard
 
-# ==========================================
-# 全局配置
-# ==========================================
 TARGET_EXE = "NRC-Win64-Shipping.exe"
 is_running = False
 
@@ -21,14 +18,11 @@ VK_MAP = {
     'space': 0x20
 }
 
-
-# ==========================================
-# 1. 进程级窗口锁定 (绝对精准)
-# ==========================================
+#进程级窗口
 def get_hwnd_by_exe(exe_name):
     """通过进程名精确获取游戏主窗口句柄"""
     target_pid = None
-    # 1. 遍历进程，找到游戏的 PID
+    #  遍历进程，找到游戏的 PID
     for proc in psutil.process_iter(['pid', 'name']):
         if proc.info['name'] and proc.info['name'].lower() == exe_name.lower():
             target_pid = proc.info['pid']
@@ -37,7 +31,7 @@ def get_hwnd_by_exe(exe_name):
     if not target_pid:
         return None
 
-    # 2. 根据 PID 寻找对应的可见窗口
+    # 根据 PID 寻找对应的可见窗口
     def callback(hwnd, hwnds):
         if win32gui.IsWindowVisible(hwnd) and win32gui.IsWindowEnabled(hwnd):
             _, pid = win32process.GetWindowThreadProcessId(hwnd)
@@ -55,10 +49,6 @@ def get_hwnd_by_exe(exe_name):
         return hwnds[0]
     return None
 
-
-# ==========================================
-# 2. 核心底层：安全等待 (随按随停)
-# ==========================================
 def safe_sleep(min_ms, max_ms):
     """
     将长睡眠切片为 50ms 的小段，允许脚本秒停
@@ -74,10 +64,7 @@ def safe_sleep(min_ms, max_ms):
         elapsed += 0.05
     return True
 
-
-# ==========================================
-# 3. 核心底层：后台消息注入
-# ==========================================
+# 后台消息注入
 def send_bg_key(hwnd, key_name):
     """向游戏后台信箱投递真实的物理按键扫描码"""
     if not hwnd or not is_running: return
@@ -91,21 +78,18 @@ def send_bg_key(hwnd, key_name):
     lparam_down = 1 | (sc << 16)
     lparam_up = 1 | (sc << 16) | 0xC0000000
 
-    # 1. 按下
+    #  按下
     win32gui.PostMessage(hwnd, win32con.WM_KEYDOWN, vk, lparam_down)
 
-    # 2. 按键粘滞时长 (80ms - 120ms，极度拟真)
+    #  按键粘滞时长 80ms - 120ms
     if not safe_sleep(80, 120): return
 
-    # 3. 松开
+    #  松开
     win32gui.PostMessage(hwnd, win32con.WM_KEYUP, vk, lparam_up)
 
-
-# ==========================================
-# 4. 刷花连招与防封逻辑
-# ==========================================
+# 刷花连招与防封逻辑
 def farm_loop(hwnd):
-    # --- 反检测 1：模拟玩家低头看手机发呆 (3% 概率) ---
+    # --- 反检测 ：模拟玩家低头看手机发呆 (3% 概率) ---
     if random.random() <= 0.03:
         print("\n[防封机制] 触发真人发呆模拟 (预计 10-20 秒)...")
         if not safe_sleep(10000, 20000): return
@@ -117,8 +101,8 @@ def farm_loop(hwnd):
 
     print(">> 后台注入: [2] 触发交互/鞠躬")
     send_bg_key(hwnd, '2')
-    # 鞠躬动画等待，时间加入 400ms 的随机浮动
-    if not safe_sleep(3800, 4200): return
+    # 鞠躬动画等待，时间加入随机浮动，确保在 15 秒左右
+    if not safe_sleep(14500, 15500): return
 
     print(">> 后台注入: [ESC] 取消/关闭界面")
     send_bg_key(hwnd, 'esc')
@@ -127,7 +111,7 @@ def farm_loop(hwnd):
     print(">> 后台注入: [Space] 跳跃")
     send_bg_key(hwnd, 'space')
 
-    # --- 反检测 2：一轮结束后的随机喘息 (5% 概率) ---
+    # --- 反检测 一轮结束后的随机喘息 (5% 概率) ---
     if random.random() <= 0.05:
         print("[防封机制] 循环结束，喝口水歇一下 (预计 5-10 秒)...")
         if not safe_sleep(5000, 10000): return
@@ -135,10 +119,7 @@ def farm_loop(hwnd):
         # 正常的两轮之间的短间隔
         if not safe_sleep(800, 1200): return
 
-
-# ==========================================
-# 5. 主控程序
-# ==========================================
+# 主控程序
 def toggle_script():
     global is_running
     is_running = not is_running
@@ -146,7 +127,6 @@ def toggle_script():
         print("\n[▶] 脚本已启动！你现在可以把游戏切到后台或干别的事情了。(按 F9 暂停)")
     else:
         print("\n[⏸] 脚本已暂停！ (按 F9 恢复)")
-
 
 def main():
     print("=======================================")
@@ -184,7 +164,6 @@ def main():
 
     except KeyboardInterrupt:
         print("\n=== 脚本已手动退出 ===")
-
 
 if __name__ == "__main__":
     main()
