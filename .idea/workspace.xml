@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2befffc5-d45a-4826-aac5-a94b52c32a2a" name="更改" comment="Optimize project structure and logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/macro_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/macro_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1779456923773</updated>
-      <workItem from="1779456925187" duration="4354000" />
+      <workItem from="1779456925187" duration="5180000" />
     </task>
     <task id="LOCAL-00001" summary="洛克王国刷花初始脚本">
       <option name="closed" value="true" />
@@ -119,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779460588203</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Optimize project structure and logic">
+      <option name="closed" value="true" />
+      <created>1779461317191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779461317191</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
