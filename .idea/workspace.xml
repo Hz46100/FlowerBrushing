@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2befffc5-d45a-4826-aac5-a94b52c32a2a" name="更改" comment="Optimize project structure and logic">
+    <list default="true" id="2befffc5-d45a-4826-aac5-a94b52c32a2a" name="更改" comment="Added ghost fire farming feature, modified GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1779456923773</updated>
-      <workItem from="1779456925187" duration="5180000" />
+      <workItem from="1779456925187" duration="6734000" />
     </task>
     <task id="LOCAL-00001" summary="洛克王国刷花初始脚本">
       <option name="closed" value="true" />
@@ -124,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779461317191</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added ghost fire farming feature, modified GUI">
+      <option name="closed" value="true" />
+      <created>1779462420896</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779462420896</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +150,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -157,7 +166,8 @@
     <MESSAGE value="洛克王国刷花初始脚本" />
     <MESSAGE value="优化逻辑" />
     <MESSAGE value="Optimize project structure and logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize project structure and logic" />
+    <MESSAGE value="Added ghost fire farming feature, modified GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ghost fire farming feature, modified GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/$1.coverage" NAME="1 覆盖结果" MODIFIED="1779459649279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
